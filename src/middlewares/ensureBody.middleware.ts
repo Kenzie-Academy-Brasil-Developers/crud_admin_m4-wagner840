@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ZodTypeAny } from "zod";
 import { AppError } from "../error";
 
-const ensureBody =
+export const ensureBody =
   (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction) => {
     if (Object.keys(req.body).length === 0) {
       throw new AppError("No data received.", 400);
@@ -14,5 +14,3 @@ const ensureBody =
 
     return next();
   };
-
-export default ensureBody;

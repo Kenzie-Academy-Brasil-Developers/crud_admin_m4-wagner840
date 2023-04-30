@@ -3,7 +3,11 @@ import { QueryConfig } from "pg";
 import { client } from "../database";
 import { AppError } from "../error";
 
-const ensureEmail = async (req: Request, res: Response, next: NextFunction) => {
+export const ensureEmail = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const { email } = req.body;
   if (req.method === "PATCH" && !req.body.email) {
     return next();
@@ -23,4 +27,3 @@ const ensureEmail = async (req: Request, res: Response, next: NextFunction) => {
 
   return next();
 };
-export default ensureEmail;
