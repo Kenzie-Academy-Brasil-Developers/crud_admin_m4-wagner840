@@ -4,7 +4,7 @@ import { TResponseUser } from "../interfaces/users.interface";
 import { client } from "../database";
 import { AppError } from "../error";
 
-export const ensureUserIsActived = async (
+const ensureUserIsActived = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -28,3 +28,4 @@ export const ensureUserIsActived = async (
 
   return next();
 };
+export default ensureUserIsActived;

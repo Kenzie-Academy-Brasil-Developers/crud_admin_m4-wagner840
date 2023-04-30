@@ -5,14 +5,14 @@ import {
   updateActiveUserController,
   updateUserController,
 } from "../controllers/users.controllers";
-import { ensureBody } from "../middlewares/ensureBody.middleware";
 import { createUserSchema, updateUserSchema } from "../schemas/users.schemas";
-import { ensureEmail } from "../middlewares/ensureEmail.middleware";
 import { listUsersService } from "../services/users/listUsers.service";
-import { ensureToken } from "../middlewares/ensureToken.middleware";
-import { ensureAdmin } from "../middlewares/ensureAdmin.middleware";
 import { listUserProfile } from "../services/users/getUserProfile.service";
-import { ensureUser } from "../middlewares/ensureUser.middleware";
+import ensureBody from "../middlewares/ensureBody.middleware";
+import ensureEmail from "../middlewares/ensureEmail.middleware";
+import ensureAdmin from "../middlewares/ensureAdmin.middleware";
+import ensureToken from "../middlewares/ensureToken.middleware";
+import ensureUser from "../middlewares/ensureUser.middleware";
 const userRoutes: Router = Router();
 
 userRoutes.post("", ensureBody(createUserSchema), ensureEmail, createUser);

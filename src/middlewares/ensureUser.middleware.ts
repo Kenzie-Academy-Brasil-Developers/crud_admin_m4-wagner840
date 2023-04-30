@@ -4,7 +4,7 @@ import { QueryConfig, QueryResult } from "pg";
 import { client } from "../database";
 import { TResponseUser } from "../interfaces/users.interface";
 
-export const ensureUser = async (
+const ensureUser = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -26,3 +26,4 @@ export const ensureUser = async (
 
   return next();
 };
+export default ensureUser;

@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppError } from "../error";
 import jwt from "jsonwebtoken";
 
-export const ensureToken = async (
+const ensureToken = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -31,3 +31,4 @@ export const ensureToken = async (
 
   return next();
 };
+export default ensureToken;

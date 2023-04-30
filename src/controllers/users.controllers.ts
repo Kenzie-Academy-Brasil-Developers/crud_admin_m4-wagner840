@@ -34,11 +34,11 @@ export const getUserProfile = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const id: number = res.locals.token.id;
+  const id: number = parseInt(res.locals.token.id);
   console.log(id);
   const data: TResponseUser = await listUserProfile(id);
 
-  return res.send(data);
+  return res.status(200).send(data);
 };
 
 export const updateUserController = async (

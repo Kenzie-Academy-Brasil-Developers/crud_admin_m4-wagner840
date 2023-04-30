@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "../error";
 
-export const ensureAdmin = async (
+const ensureAdmin = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -14,3 +14,4 @@ export const ensureAdmin = async (
 
   return next();
 };
+export default ensureAdmin;
