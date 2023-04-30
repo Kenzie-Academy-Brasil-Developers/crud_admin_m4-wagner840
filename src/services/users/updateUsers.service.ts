@@ -6,7 +6,7 @@ import { createUserResponseSchema } from "../../schemas/users.schemas";
 
 export const updateUser = async (userId: number, payload: TUpdateUser) => {
   const queryFormat = format(
-    `UPDATE users SET (%I) = ROW (%L) WHERE id = $1 RETURNING *`,
+    `UPDATE users SET (%I) = ROW (%L) WHERE id = $1 RETURNING *;`,
 
     Object.keys(payload),
     Object.values(payload)

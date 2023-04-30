@@ -19,7 +19,7 @@ userRoutes.post("", ensureBody(createUserSchema), ensureEmail, createUser);
 
 userRoutes.get("", ensureToken, ensureAdmin, listUsersService);
 
-userRoutes.get("/profile", ensureToken, listUserProfile);
+userRoutes.get("/:profile", ensureToken, listUserProfile);
 
 userRoutes.patch(
   "/:id",

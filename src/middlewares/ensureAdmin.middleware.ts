@@ -7,7 +7,6 @@ export const ensureAdmin = async (
   next: NextFunction
 ): Promise<Response | void> => {
   const admin = res.locals.token.admin;
-  console.log(admin);
 
   if (admin === false) {
     throw new AppError("Insufficient Permission", 403);

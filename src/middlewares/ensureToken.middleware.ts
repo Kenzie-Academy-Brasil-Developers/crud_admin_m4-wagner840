@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
 import { AppError } from "../error";
+import jwt from "jsonwebtoken";
 
 export const ensureToken = async (
   req: Request,

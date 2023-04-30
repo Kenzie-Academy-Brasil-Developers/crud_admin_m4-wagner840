@@ -18,7 +18,7 @@ export const createSessionLogin = async (
   const user: TUser = queryResult.rows[0];
 
   if (!user) {
-    throw new AppError("Wrong email or password", 401);
+    throw new AppError("Wrong email/password", 401);
   }
 
   if (!user.active) {
@@ -31,7 +31,7 @@ export const createSessionLogin = async (
   );
 
   if (!comparePassword) {
-    throw new AppError("Wrong email or password", 401);
+    throw new AppError("Wrong email/password", 401);
   }
 
   const token: string = jwt.sign(

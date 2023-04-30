@@ -9,5 +9,5 @@ export const createControllerLogin = async (
   const payload: TReqLogin = req.body;
   const token = await createSessionLogin(payload);
 
-  return res.status(20).send({ token });
+  return res.status(200).send({ token });
 };

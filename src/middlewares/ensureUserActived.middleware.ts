@@ -23,7 +23,7 @@ export const ensureUserIsActived = async (
   const user = result.rows[0];
 
   if (user.active === true) {
-    throw new AppError("User already actived", 400);
+    throw new AppError("User already active", 400);
   }
 
   return next();

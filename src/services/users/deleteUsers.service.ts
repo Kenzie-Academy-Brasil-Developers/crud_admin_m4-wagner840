@@ -1,12 +1,16 @@
 import { QueryConfig, QueryResult } from "pg";
-import { TCreateUser, TUser } from "../../interfaces/users.interface";
+import {
+  TCreateUser,
+  TResponseUser,
+  TUser,
+} from "../../interfaces/users.interface";
 
 import { client } from "../../database";
 
 export const deleteUsers = async (
   userId: number,
   token: number
-): Promise<TCreateUser> => {
+): Promise<TResponseUser> => {
   const id = userId;
   const tokenUser = token;
 
@@ -15,10 +19,10 @@ export const deleteUsers = async (
   }
 
   const queryString: string = `
-  UPDATE users
-  SET active = false
-    WHERE id = $1;
-    AND active = true;
+    UPDATE users
+    SET active = false
+    WHERE id = $1
+    AND active = true
     RETURNING *;
     `;
 

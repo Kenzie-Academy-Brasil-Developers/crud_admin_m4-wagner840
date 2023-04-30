@@ -19,7 +19,6 @@ export const createUser = async (
   const payload: TCreateUser = req.body;
 
   const newUser: TResponseUser = await createUserService(payload);
-  console.log(newUser);
 
   return res.status(201).send(newUser);
 };
@@ -27,7 +26,7 @@ export const getUsers = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const users: TUser[] = await listUsersService();
+  const users: TResponseUser[] = await listUsersService();
   return res.status(200).send(users);
 };
 
@@ -35,10 +34,11 @@ export const getUserProfile = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const id: number = parseInt(req.params.id);
+  const id: number = res.locals.token.id;
+  console.log(id);
   const data: TResponseUser = await listUserProfile(id);
 
-  return res.status(200).send(data);
+  return res.send(data);
 };
 
 export const updateUserController = async (
@@ -62,7 +62,7 @@ export const softDeleteController = async (
 
   const userData = await deleteUsers(id, token);
 
-  return res.status(200).send(userData);
+  return res.status(204).send(userData);
 };
 
 export const updateActiveUserController = async (

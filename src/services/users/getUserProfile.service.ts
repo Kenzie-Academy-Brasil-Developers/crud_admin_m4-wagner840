@@ -7,10 +7,11 @@ export const listUserProfile = async (
   userId: number
 ): Promise<TResponseUser> => {
   const id: number = Number(userId);
+  console.log(id);
 
   const queryString: string = `
     SELECT * FROM users
-    WHERE id = $1;
+    WHERE id = $1
     `;
 
   const queryConfig: QueryConfig = {

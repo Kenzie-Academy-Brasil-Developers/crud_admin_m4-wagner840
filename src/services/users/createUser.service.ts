@@ -16,7 +16,7 @@ const createUserService = async (payload: TCreateUser) => {
   const hashPassword: string = await bcrypt.hash(payload.password, 10);
   payload.password = hashPassword;
   const queryString: string = format(
-    `INSERT INTO users (%I) VALUES (%L) RETURNING *`,
+    `INSERT INTO users (%I) VALUES (%L) RETURNING *;`,
     Object.keys(payload),
     Object.values(payload)
   );

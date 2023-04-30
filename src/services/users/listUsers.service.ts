@@ -2,6 +2,7 @@ import { QueryResult } from "pg";
 import { TResponseUser } from "../../interfaces/users.interface";
 import { client } from "../../database";
 import { getAllUsersSchema } from "../../schemas/users.schemas";
+import "dotenv/config";
 
 export const listUsersService = async (): Promise<TResponseUser[]> => {
   const queryString: string = `SELECT * FROM users`;
