@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { TUser } from "../__tests__/mocks/interfaces";
+
 import {
   TCreateUser,
   TResponseUser,
@@ -35,7 +35,7 @@ export const getUserProfile = async (
   res: Response
 ): Promise<Response> => {
   const id: number = parseInt(res.locals.token.id);
-  console.log(id);
+
   const data: TResponseUser = await listUserProfile(id);
 
   return res.status(200).send(data);

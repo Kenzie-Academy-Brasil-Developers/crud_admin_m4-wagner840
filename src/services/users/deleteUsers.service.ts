@@ -1,9 +1,5 @@
 import { QueryConfig, QueryResult } from "pg";
-import {
-  TCreateUser,
-  TResponseUser,
-  TUser,
-} from "../../interfaces/users.interface";
+import { TResponseUser, TUser } from "../../interfaces/users.interface";
 
 import { client } from "../../database";
 

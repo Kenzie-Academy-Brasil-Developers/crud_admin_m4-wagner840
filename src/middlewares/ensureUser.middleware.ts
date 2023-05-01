@@ -20,7 +20,9 @@ export const ensureUser = async (
 
   const result: QueryResult<TResponseUser> = await client.query(queryConfig);
 
-  if (result.rowCount === 0) {
+  const user = result.rows[0];
+
+  if (!user) {
     throw new AppError("User not found", 404);
   }
 

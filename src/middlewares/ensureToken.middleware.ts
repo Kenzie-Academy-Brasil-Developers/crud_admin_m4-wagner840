@@ -23,7 +23,7 @@ export const ensureToken = async (
         throw new AppError(err.message, 401);
       }
       res.locals.token = {
-        id: parseInt(decoded.sub),
+        id: Number(decoded.sub),
         admin: decoded.admin,
       };
     }
